@@ -2,5 +2,11 @@
     <string name="app_name">ProjektExodus</string>
     <string name="video1">http://www.html5videoplayer.net/videos/toystory.mp4</string>
     <string name="video2">http://www.html5videoplayer.net/videos/madagascar3.mp4</string>
+    <string name="video3">http://www.jplayer.org/video/m4v/Big_Buck_Bunny_Trailer.m4v</string>
+    <string name="video4">https://video.dailymail.co.uk/video/1418450360/2015/02/1418450360_4056782948001_nerdist--1424015378606.mp4</string>
+    <string name="video5">https://ftp.nluug.nl/pub/graphics/blender/demo/movies/ToS/tears_of_steel_720p.mov</string>
+
+
+
 
 </resources>

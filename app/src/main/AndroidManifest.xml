@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlayerActivity" android:label="PlayerActivity"></activity>
+        <activity android:name=".PlayerActivity" android:label="ExoPlayer" android:screenOrientation="landscape">
+
+        </activity>
     </application>
 
 </manifest>

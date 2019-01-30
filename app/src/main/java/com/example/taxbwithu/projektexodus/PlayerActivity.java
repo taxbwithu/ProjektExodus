@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
 
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.DefaultRenderersFactory;
@@ -24,6 +27,9 @@ public class PlayerActivity extends AppCompatActivity {
     private SimpleExoPlayer player;
     private PlayerView playerView;
 
+    private int[] videos = {R.string.video1, R.string.video2, R.string.video3, R.string.video4, R.string.video5};
+    public int choice = 1;
+
     private long playbackPosition;
     private int currentWindow;
     private boolean playWhenReady = true;
@@ -31,7 +37,17 @@ public class PlayerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_player);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String wybor = extras.getString("key");
+            choice = Integer.parseInt(wybor);
+        }
+
 
         playerView = findViewById(R.id.video_view);
     }
@@ -77,7 +93,7 @@ public class PlayerActivity extends AppCompatActivity {
             player.setPlayWhenReady(playWhenReady);
             player.seekTo(currentWindow, playbackPosition);
         }
-        MediaSource mediaSource = buildMediaSource(Uri.parse(getString(R.string.media_url_mp4)));
+        MediaSource mediaSource = buildMediaSource(Uri.parse(getString(videos[choice])));
         player.prepare(mediaSource, true, false);
     }
 
